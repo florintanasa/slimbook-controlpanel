@@ -447,5 +447,96 @@
             }
             
         ]
+    },
+    {
+        "name" : "Inspiron 3881",
+        "match" : {"mode" : "dmi", "vendor" : "Dell Inc.", "product" : "Inspiron 3881"},
+        "sample-rate" : 1.0,
+        "logo":"qrc:/images/models/inspiron.svg",
+        "columns" : 4,
+        "rows" : 4,
+        "layout": [
+            {
+                "objectName" : "CpuInfo",
+                "col" : 0,
+                "row" : 0
+            },
+            {
+                "objectName" : "SystemProfile",
+                "col" : 1,
+                "row" : 0
+            },
+            {
+                "objectName" : "TDP",
+                "col" : 2,
+                "row" : 0
+            },
+            {
+                "objectName" : "Value",
+                "col" : 3,
+                "row" : 0,
+                "sensor": "rapl.intel-rapl:0",
+                "label" : "Power",
+                "unit" : "W",
+                "warning": 55,
+                "critical" : 80,
+                "minimum": 0.0,
+                "maximum": 88.0
+            },
+
+            {
+                "objectName" : "Value",
+                "col" : 0,
+                "row" : 1,
+                "sensor": "hwmon.temp.hwmon2/temp1_input",
+                "label" : "CPU Temp",
+                "unit" : "",
+                "warning": 50,
+                "critical" : 70,
+                "minimum": 0.0,
+                "maximum": 100.0
+            },
+
+            {
+                "objectName" : "MultiValue",
+                "col" : 1,
+                "row" : 1,
+                "sensor": "cpu.load.cpu[0-15]+",
+                "label" : "Load",
+                "unit" : "%",
+                "minimum" : 0,
+                "maximum" : 100
+            },
+            {
+                "objectName" : "MultiValue",
+                "col" : 2,
+                "row" : 1,
+                "sensor": "cpu.freq.cpu[0-15]+",
+                "label" : "Mhz",
+                "unit" : "%",
+                "minimum" : 400,
+                "maximum" : 4673
+            },
+            {
+                "objectName" : "Value",
+                "col" : 3,
+                "row" : 1,
+                "sensor": "cpu.load.average",
+                "label" : "Load",
+                "unit" : ""
+            },
+
+            {
+                "objectName" : "Value",
+                "col" : 0,
+                "row" : 2,
+                "sensor": "ram.usage",
+                "label" : "Ram Usage",
+                "unit" : "%",
+                "minimum" : 0.0,
+                "maximum" : 100.0
+            }
+
+        ]
     }
 ]

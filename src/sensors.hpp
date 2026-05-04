@@ -169,7 +169,7 @@ namespace slimbook
 
             RamSensor();
 
-            void read_meminfo(int& total,int& free);
+            void read_meminfo(int& total,int& available);
 
             std::vector<Node> &nodes()
             {

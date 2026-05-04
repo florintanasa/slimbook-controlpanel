@@ -11,6 +11,7 @@
 #include <QDBusConnection>
 
 #include <iostream>
+#include <fstream>
 
 using namespace slimbook::controlpanel;
 using namespace std;
@@ -179,10 +180,20 @@ QVariantList Server::getTDP()
     stringstream out;
     
     if (m_cpuName.contains("Intel")) {
-        //HACK
-        pl1 = 200;
-        pl2 = 200;
-        pl4 = 200;
+        ifstream plFile("/sys/class/powercap/intel-rapl:0/constraint_0_max_power_uw");
+        if (plFile.is_open()) {
+            long long value;
+            plFile >> value;
+            pl1 = value / 1000000; // Transform micro-watts in Watts
+            pl2 = pl1;             
+            pl4 = pl1;
+            plFile.close();
+        } else {
+            // Fallback can't read
+            pl1 = 200;
+            pl2 = 200; 
+            pl4 = 200; 
+            }
     }
     
     if (m_cpuName.contains("AMD")) {

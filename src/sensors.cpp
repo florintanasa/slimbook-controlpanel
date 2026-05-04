@@ -432,26 +432,20 @@ RamSensor::RamSensor():Sensor("ram")
     update();
 }
 
-void RamSensor::read_meminfo(int& total,int& free)
+void RamSensor::read_meminfo(int& total, int& available)
 {
-    ifstream file;
+    ifstream file("/proc/meminfo");
     string line;
-
-    file.open("/proc/meminfo");
-
-    // MemTotal
-    std::getline(file, line);
-    vector<string> tmp = split(line,' ');
-    total = std::stoll(tmp[1]);
-
-    // MemFree
-    std::getline(file, line);
-
-    // MemAvailable
-    std::getline(file, line);
-    tmp = split(line,' ');
-    free = std::stoll(tmp[1]);
-
+    while (std::getline(file, line)) {
+        if (line.find("MemTotal:") == 0) {
+            vector<string> tmp = split(line, ' ');
+            total = std::stoll(tmp[tmp.size() - 2]);
+        }
+        if (line.find("MemAvailable:") == 0) {
+            vector<string> tmp = split(line, ' ');
+            available = std::stoll(tmp[tmp.size() - 2]);
+        }
+    }
     file.close();
 }
 
@@ -476,8 +470,9 @@ void RamSensor::update()
         }
         
         if (node.name == "usage") {
-            node.raw = total-free;
-            node.value = (total-free) / (1024 * 1024);
+            node.raw = total - free;
+            // Percents: (usage / total) * 100
+            node.value = (double)(total - free) / total * 100.0; 
             node.timestamp = std::chrono::steady_clock::now();
         }
     }
