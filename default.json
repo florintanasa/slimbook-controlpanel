@@ -479,9 +479,9 @@
                 "label" : "CPU Power",
                 "unit" : "W",
                 "warning": 55,
-                "critical" : 80,
+                "critical" : 130,
                 "minimum": 0.0,
-                "maximum": 88.0
+                "maximum": 134.0
             },
 
             {
@@ -515,7 +515,7 @@
                 "label" : "Cores Freq",
                 "unit" : "MHz",
                 "minimum" : 400,
-                "maximum" : 4673
+                "maximum" : 4800
             },
             {
                 "objectName" : "Value",
