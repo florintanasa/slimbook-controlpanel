@@ -529,7 +529,7 @@
             {
                 "objectName" : "Value",
                 "col" : 0,
-                "row" : 3,
+                "row" : 2,
                 "sensor": "ram.usage",
                 "label" : "Ram Usage",
                 "unit" : "%",
@@ -538,9 +538,8 @@
             },
             {
                 "objectName" : "Value",
-                "col" : 0,
+                "col" : 1,
                 "row": 2,
-                "columns": 4,
                 "sensor": "cpu.freq.average",
                 "label" : "Avg Freq",
                 "unit" : "GHz"
