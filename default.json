@@ -476,7 +476,7 @@
                 "col" : 3,
                 "row" : 0,
                 "sensor": "rapl.intel-rapl:0",
-                "label" : "Power",
+                "label" : "CPU Power",
                 "unit" : "W",
                 "warning": 55,
                 "critical" : 80,
@@ -490,7 +490,7 @@
                 "row" : 1,
                 "sensor": "hwmon.temp.hwmon5/temp1_input",
                 "label" : "CPU Temp",
-                "unit" : "",
+                "unit" : "°C",
                 "warning": 50,
                 "critical" : 70,
                 "minimum": 0.0,
@@ -502,7 +502,7 @@
                 "col" : 1,
                 "row" : 1,
                 "sensor": "cpu.load.cpu[0-15]+",
-                "label" : "Load",
+                "label" : "Cores Load",
                 "unit" : "%",
                 "minimum" : 0,
                 "maximum" : 100
@@ -512,7 +512,7 @@
                 "col" : 2,
                 "row" : 1,
                 "sensor": "cpu.freq.cpu[0-15]+",
-                "label" : "Freq",
+                "label" : "Cores Freq",
                 "unit" : "MHz",
                 "minimum" : 400,
                 "maximum" : 4673
@@ -522,7 +522,7 @@
                 "col" : 3,
                 "row" : 1,
                 "sensor": "cpu.load.average",
-                "label" : "Load",
+                "label" : "CPU Avg Load",
                 "unit" : ""
             },
 
@@ -541,7 +541,7 @@
                 "col" : 1,
                 "row": 2,
                 "sensor": "cpu.freq.average",
-                "label" : "Avg Freq",
+                "label" : "CPU Avg Freq",
                 "unit" : "GHz"
             }
 
