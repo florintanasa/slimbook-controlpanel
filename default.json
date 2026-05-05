@@ -488,7 +488,7 @@
                 "objectName" : "Value",
                 "col" : 0,
                 "row" : 1,
-                "sensor": "hwmon.temp.hwmon2/temp1_input",
+                "sensor": "hwmon.temp.hwmon5/temp1_input",
                 "label" : "CPU Temp",
                 "unit" : "",
                 "warning": 50,
@@ -512,8 +512,8 @@
                 "col" : 2,
                 "row" : 1,
                 "sensor": "cpu.freq.cpu[0-15]+",
-                "label" : "Mhz",
-                "unit" : "%",
+                "label" : "Freq",
+                "unit" : "MHz",
                 "minimum" : 400,
                 "maximum" : 4673
             },
@@ -529,12 +529,21 @@
             {
                 "objectName" : "Value",
                 "col" : 0,
-                "row" : 2,
+                "row" : 3,
                 "sensor": "ram.usage",
                 "label" : "Ram Usage",
                 "unit" : "%",
                 "minimum" : 0.0,
                 "maximum" : 100.0
+            },
+            {
+                "objectName" : "Value",
+                "col" : 0,
+                "row": 2,
+                "columns": 4,
+                "sensor": "cpu.freq.average",
+                "label" : "Avg Freq",
+                "unit" : "MHz"
             }
 
         ]
