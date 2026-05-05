@@ -61,7 +61,7 @@ void FrequencySensor::update()
 
     if (average and children.size() > 1) {
         average-> raw = avg / (children.size()-1);
-        average->value = average->raw / 1000.0;
+        average->value = average->raw / 1000000.0;
         average->timestamp = std::chrono::steady_clock::now();
     }
 }
