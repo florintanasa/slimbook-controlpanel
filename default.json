@@ -543,7 +543,7 @@
                 "columns": 4,
                 "sensor": "cpu.freq.average",
                 "label" : "Avg Freq",
-                "unit" : "MHz"
+                "unit" : "GHz"
             }
 
         ]
